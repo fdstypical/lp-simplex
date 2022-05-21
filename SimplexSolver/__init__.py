@@ -107,7 +107,7 @@ class SimplexSolver:
     for index, value in enumerate(c):
       c[index] = -value
 
-    self.tableau.append(c + [0] * (len(self.b)+1))
+    self.tableau.append(c + [0] * (len(self.b) + 1))
 
   def find_pivot(self):
     ''' Find pivot index.'''
@@ -148,7 +148,7 @@ class SimplexSolver:
     min_ratio = 0
 
     for index, x in enumerate(self.tableau):
-      if x[entering_index] != 0 and x[len(x)-1] / x[entering_index] > 0:
+      if x[entering_index] != 0 and x[len(x) - 1] / x[entering_index] > 0:
         skip = index
         min_ratio_index = index
         min_ratio = x[len(x) - 1] / x[entering_index]
@@ -157,7 +157,7 @@ class SimplexSolver:
     if min_ratio > 0:
       for index, x in enumerate(self.tableau):
         if index > skip and x[entering_index] > 0:
-          ratio = x[len(x)-1] / x[entering_index]
+          ratio = x[len(x) - 1] / x[entering_index]
 
           if min_ratio > ratio:
             min_ratio = ratio
